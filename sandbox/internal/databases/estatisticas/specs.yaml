@@ -1,0 +1,22 @@
+name: estatisticas
+prefix: estatisticas
+tables:
+    - fields:
+        - name: criadoem
+          required: true
+          type: int
+      name: visita
+    - fields:
+        - name: adultos
+          required: true
+          type: int
+        - name: criancas
+          type: int
+        - name: carneg
+          type: int
+        - name: cervejas
+          type: int
+        - name: criadoem
+          required: true
+          type: int
+      name: calculo

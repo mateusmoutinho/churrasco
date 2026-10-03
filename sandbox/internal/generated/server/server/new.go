@@ -6,6 +6,7 @@ import (
 	routeslist_authentication "github.com/mateusmoutinho/churrasco/sandbox/internal/routeslist/admin/authentication"
 	routeslist_create_backoffice_api_token "github.com/mateusmoutinho/churrasco/sandbox/internal/routeslist/admin/create_backoffice_api_token"
 	routeslist_create_backoffice_api_token_page "github.com/mateusmoutinho/churrasco/sandbox/internal/routeslist/admin/create_backoffice_api_token_page"
+	routeslist_estatisticas "github.com/mateusmoutinho/churrasco/sandbox/internal/routeslist/admin/estatisticas"
 	routeslist_home "github.com/mateusmoutinho/churrasco/sandbox/internal/routeslist/admin/home"
 	routeslist_list_backoffice_api_tokens "github.com/mateusmoutinho/churrasco/sandbox/internal/routeslist/admin/list_backoffice_api_tokens"
 	routeslist_list_backoffice_users "github.com/mateusmoutinho/churrasco/sandbox/internal/routeslist/admin/list_backoffice_users"
@@ -32,6 +33,7 @@ import (
 	routeslist_frontend "github.com/mateusmoutinho/churrasco/sandbox/internal/routeslist/frontend"
 	routeslist_health "github.com/mateusmoutinho/churrasco/sandbox/internal/routeslist/health"
 	routeslist_security_headers "github.com/mateusmoutinho/churrasco/sandbox/internal/routeslist/security_headers"
+	routeslist_visita "github.com/mateusmoutinho/churrasco/sandbox/internal/routeslist/visita"
 	errors "github.com/mateusmoutinho/churrasco/sandbox/internal/server/errors"
 )
 
@@ -66,6 +68,7 @@ func NewServer(sandbox *api.Sandbox) api.Server {
 		routeslist_create_backoffice_api_token_page.NewRoute(sandbox),
 		routeslist_edit_backoffice_user.NewRoute(sandbox),
 		routeslist_edit_backoffice_user_page.NewRoute(sandbox),
+		routeslist_estatisticas.NewRoute(sandbox),
 		routeslist_health.NewRoute(sandbox),
 		routeslist_home.NewRoute(sandbox),
 		routeslist_list_backoffice_api_tokens.NewRoute(sandbox),
@@ -74,6 +77,7 @@ func NewServer(sandbox *api.Sandbox) api.Server {
 		routeslist_logout.NewRoute(sandbox),
 		routeslist_remove_backoffice_user.NewRoute(sandbox),
 		routeslist_revoke_backoffice_api_token.NewRoute(sandbox),
+		routeslist_visita.NewRoute(sandbox),
 		routeslist_frontend.NewRoute(sandbox),
 	}
 

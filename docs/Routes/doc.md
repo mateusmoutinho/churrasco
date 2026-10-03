@@ -43,6 +43,7 @@ it prints the address it took. Change it to wherever your server runs.
 
 | Route | What it does |
 | --- | --- |
+| [`GET /admin/estatisticas`](estatisticas.md) | Mostra o total de acessos ao site e de cálculos do churrasco |
 | [`GET /admin/home`](home.md) | Shows the backoffice home page to the signed-in user |
 | [`POST /admin/login`](login.md) | Signs a backoffice user in and sets the session cookie |
 | [`POST /admin/logout`](logout.md) | Ends the current session |
@@ -79,6 +80,7 @@ it prints the address it took. Change it to wherever your server runs.
 | Route | What it does |
 | --- | --- |
 | [`GET /churrasco`](churrasco.md) |  |
+| [`POST /visita`](visita.md) | Registra um acesso ao site |
 
 ## Assets
 

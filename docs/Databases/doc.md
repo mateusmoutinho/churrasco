@@ -7,6 +7,7 @@ with the `new.go` they render.
 | Database | Package | Keys under |
 | --- | --- | --- |
 | [`Backofficedb`](backofficedb.md) | `backofficedb` | `backofficedb` |
+| [`Estatisticas`](estatisticas.md) | `estatisticas` | `estatisticas` |
 
 ## The files
 

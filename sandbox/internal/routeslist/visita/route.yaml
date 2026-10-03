@@ -1,0 +1,13 @@
+category: Routes
+help: Registra um acesso ao site
+methods:
+    - POST
+paths:
+    - end: -1
+      id: Route
+      start: 0
+      trigger:
+        type: equal
+        value: /visita
+priority: 100
+response-type: application/json

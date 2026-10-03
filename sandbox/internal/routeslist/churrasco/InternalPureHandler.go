@@ -3,6 +3,7 @@ package churrasco
 import (
 	"github.com/mateusmoutinho/churrasco/sandbox/api"
 	"github.com/mateusmoutinho/churrasco/sandbox/deps/serverdeps"
+	estatisticasdb "github.com/mateusmoutinho/churrasco/sandbox/internal/databases/estatisticas"
 	"github.com/mateusmoutinho/churrasco/sandbox/internal/routeprops"
 )
 
@@ -21,6 +22,20 @@ func InternalPureHandler(sandbox *api.Sandbox, props *routeprops.RouteProps, ent
 	carne := entries.Adultos*400 + entries.Criancas*200 // gramas
 	cervejas := entries.Adultos * 6                     // latas
 	json := sandbox.Deps.Std.Sprintf(`{"carne_g": %d, "cervejas": %d}`, carne, cervejas)
+
+	// Registra o cálculo para as estatísticas do backoffice. Uma falha aqui
+	// não muda a resposta: o cálculo é devolvido igual e o erro vai para o log.
+	_, err := estatisticasdb.New(sandbox).AddCalculo(estatisticasdb.CalculoNew{
+		Adultos:  int64(entries.Adultos),
+		Criancas: int64(entries.Criancas),
+		Carneg:   int64(carne),
+		Cervejas: int64(cervejas),
+		Criadoem: sandbox.Deps.Std.Now() / 1_000_000_000,
+	})
+	if err != nil {
+		sandbox.Deps.Std.Error("churrasco: não foi possível registrar o cálculo: %s\n", err.Error())
+	}
+
 	response.Write([]byte(json))
 	return nil
 }

@@ -1,0 +1,14 @@
+category: Backoffice
+help: Mostra o total de acessos ao site e de cálculos do churrasco
+methods:
+    - GET
+paths:
+    - end: 1
+      id: AdminEstatisticas
+      start: 0
+      trigger:
+        type: equal
+        value: /admin/estatisticas
+priority: 100
+response-type: text/html
+segments: 2
