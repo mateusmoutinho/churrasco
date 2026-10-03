@@ -1,0 +1,26 @@
+category: Routes
+help: ""
+methods:
+    - GET
+parameters:
+    - fonts:
+        - query
+      id: Adultos
+      key: adultos
+      required: true
+      type: integer
+    - default: "0"
+      fonts:
+        - query
+      id: Criancas
+      key: criancas
+      type: integer
+paths:
+    - end: -1
+      id: Route
+      start: 0
+      trigger:
+        type: equal
+        value: /churrasco
+priority: 100
+response-type: application/json
